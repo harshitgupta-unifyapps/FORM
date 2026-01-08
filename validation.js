@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     clearUI();
+    result.innerHTML = '';
     const name = form.name.value.trim();
     const age = form.age.value.trim();
     const gender = form.gender.value
@@ -68,12 +69,15 @@ document.addEventListener('DOMContentLoaded', function () {
       showMessage('Please enter an email .');
       return;
     }
+    // Age must contain only digits (no decimals like 11. or 11.5)
+    if (!/^\d+$/.test(age)) {
+      showMessage('Age must be a whole number (no decimals).');
+      return;
+    }
     const ageNum = Number(age);
-    //check for age(assumed starting age 5)
-    if (!Number.isInteger(ageNum) || ageNum <= 4 || ageNum > 100) {
-      showMessage(
-        'Age must be a whole number between 4 and 100.(assumed starting age 5)',
-      );
+    // age range check (5 to 100)
+    if (ageNum < 5 || ageNum > 100) {
+      showMessage('Age must be between 5 and 100.');
       return;
     }
 
@@ -94,7 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     //if every check passed
-    showMessage('Form submitted successfully — Below is the summary of what u have submitted', false);
+    showMessage(
+      'Form submitted successfully — Below is the summary of what u have submitted',
+      false,
+    );
 
     const data = {
       Name: name,

@@ -32,9 +32,10 @@
             id="age"
             name="age"
             type="number"
-            min="0"
-            max="120"
-            placeholder="e.g. 25"
+            min="5"
+            max="100"
+            step="1"
+            placeholder="enter"
             required
           />
         </div>
@@ -101,7 +102,7 @@
             name="telephone"
             type="tel"
             placeholder="enter your phone number"
-              inputmode="numeric"
+            inputmode="numeric"
             pattern="^\+?[0-9\s\-]{7,15}$"
             required
           />
@@ -133,7 +134,7 @@
       <section id="result" aria-live="polite"></section>
     </main>
 
-  <script src="render_table.js"></script>
-<script src="validation.js"></script>
+    <script src="render_table.js"></script>
+    <script src="validation.js"></script>
   </body>
 </html>
