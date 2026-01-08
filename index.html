@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Basic Form Page</title>
+    <!-- linking to styling sheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Basic Form Details</h1>
+      <p class="hint">Please fill all details.It will be validated.</p>
+
+      <form id="scoreForm" novalidate>
+        <!-- Name -->
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your full name"
+            required
+          />
+        </div>
+
+        <!-- Age -->
+        <div class="form-row">
+          <label for="age">Age</label>
+          <input
+            id="age"
+            name="age"
+            type="number"
+            min="0"
+            max="120"
+            placeholder="e.g. 25"
+            required
+          />
+        </div>
+
+        <!-- Gender-->
+        <fieldset class="form-row">
+          <legend>Gender</legend>
+          <label
+            ><input type="radio" name="gender" value="Male" required />
+            Male</label
+          >
+          <label
+            ><input type="radio" name="gender" value="Female" /> Female</label
+          >
+          <label
+            ><input type="radio" name="gender" value="Other" /> Other</label
+          >
+        </fieldset>
+
+        <!-- Country  -->
+        <div class="form-row">
+          <label for="country">Country</label>
+          <select id="country" name="country" required>
+            <option value="">Select country</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+          </select>
+        </div>
+
+        <!-- Technological stack -->
+        <fieldset class="form-row">
+          <legend>Technological stack (choose any)</legend>
+          <label><input type="checkbox" name="tech" value="HTML" /> HTML</label>
+          <label><input type="checkbox" name="tech" value="CSS" /> CSS</label>
+          <label><input type="checkbox" name="tech" value="JS" /> JS</label>
+          <label
+            ><input type="checkbox" name="tech" value="React" /> React</label
+          >
+          <label
+            ><input type="checkbox" name="tech" value="React Native" /> React
+            Native</label
+          >
+        </fieldset>
+
+        <!-- Address -->
+        <div class="form-row">
+          <label for="address">Address</label>
+          <textarea
+            id="address"
+            name="address"
+            rows="4"
+            placeholder="Please provide your complete address"
+            required
+          ></textarea>
+        </div>
+
+        <!-- Phone number-->
+        <div class="form-row">
+          <label for="telephone">Telephone</label>
+          <input
+            id="telephone"
+            name="telephone"
+            type="tel"
+            placeholder="enter your phone number"
+              inputmode="numeric"
+            pattern="^\+?[0-9\s\-]{7,15}$"
+            required
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+
+        <!-- Buttons -->
+        <div class="form-actions">
+          <button type="reset" id="resetBtn">Reset</button>
+          <button type="submit" id="submitBtn">Submit</button>
+        </div>
+      </form>
+
+      <!-- validation messages(passed or failed) will be shown-->
+      <div id="messages" aria-live="polite"></div>
+
+      <!-- table display-->
+      <section id="result" aria-live="polite"></section>
+    </main>
+
+  <script src="render_table.js"></script>
+<script src="validation.js"></script>
+  </body>
+</html>
